@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+html, body {}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button,table,th,td{margin:0;padding:0;}
+body,div,dl,dt,dd,h1,h2,h3,h4,form,fieldset,p,th,td,input{font-family:verdana, verdana, sans-serif;}
+body{font-size:14px; color:#636363;}
+img{border:0; vertical-align:middle;}
+fieldset {border:0;}
+textarea { border:1px solid #cccccc; font-family:verdana, sans-serif; font-size:14px; }
+select, input {font-family:verdana, sans-serif; vertical-align:middle; }
+ul, ol { list-style-type : none; }
+dt, dd, h1 ,h2, h3, h4 { padding:0px; margin:0px; }
+select{color:#636363; font-size:14px;}
+a, a:link { color:#999; text-decoration:none; }
+a:hover, a:focus { color:#636363; text-decoration:none;}
+legend,caption, hr {display:none;}
+em, address { font-style:normal;}
+button {background:transparent; border:0; font-family:verdana, sans-serif; font-size:0.75em; cursor:pointer; padding:0; overflow:visible; vertical-align:top;}
+table { border-collapse:collapse;}
+span{display:inline-block;}

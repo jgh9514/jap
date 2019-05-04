@@ -1,0 +1,426 @@
+body{
+	min-width:1240px;
+	
+}
+
+a.btnIcon, button.btnIcon, span.btnIcon {
+    display: inline-block;
+    overflow: hidden;
+    width: 20px;
+    height: 20px;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    white-space: nowrap;
+    background: url('//img.echosting.cafe24.com/suio/sfix_icon_button2.png') 0 0 no-repeat;
+        background-position-x: 0px;
+        background-position-y: 0px;
+    box-sizing: border-box;
+}
+
+.btnNormal span {
+    padding: 0 6px;
+    color: #1c1c1c;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+    line-height: 22px\0;
+    border: 1px solid #cacaca;
+    background-color: #f8f8f8;
+}
+
+.mOption{
+	width:95%;
+	margin:0 auto;
+	font-size:12px;
+	color:#000;
+}
+.mOption table{
+	line-height:1.5;
+	background-color:#fff;
+}
+.mOption th{
+	font-weight:normal;
+	vertical-align:top;
+	background-color:#f5f4f4;	
+}
+
+.mOption th, .mOption td{
+	padding:9px 9px 7px;
+	border: 1px solid #d9dadc;
+	text-align: left;
+}
+
+.fSelect{
+	display: inline;
+    height: 22px;
+    line-height: 22px;
+    margin: 0;
+    max-width: 100%;
+}
+
+input.fText{
+	max-width: 100%;
+    height: 22px;
+    padding: 0 5px;
+    line-height: 22px;
+    box-sizing: border-box;
+    border: 1px solid #a7a7a7;
+        border-right-color: rgb(167, 167, 167);
+        border-bottom-color: rgb(167, 167, 167);
+    border-right-color: #cfcfcf;
+    border-bottom-color: #cfcfcf;
+    outline: 0 none;
+}
+.fText:focus {
+    border-color: #60a8f0;
+    background-color: #f7f7f7;
+}
+input.fText.gDate {
+    width: 90px;
+}
+.cTip {
+    display: inline-block;
+}
+.mTooltip {
+
+    position: relative;
+    display: inline-block;
+    margin: -2px 0 0;
+    vertical-align: middle;
+    text-align: left;
+    font-family: "µ¸¿ò",Dotum,sans-serif;
+}
+.mTooltip .icon {
+    overflow: hidden;
+    width: 15px;
+    height: 14px;
+    text-indent: 150%;
+    white-space: nowrap;
+    cursor: pointer;
+    background: url('//img.echosting.cafe24.com/suio/sflex_tooltip.png') -486px 0 no-repeat;
+}
+.mTooltip .tooltip {
+    display: none;
+    position: absolute;
+    left: -13px;
+    top: 20px;
+    text-align: left;
+    font-weight: normal;
+    letter-spacing: normal;
+    border: 1px solid #6f94bf;
+    background-color: #fff;
+    border-radius: 3px;
+}
+.mTooltip .close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    overflow: hidden;
+    width: 12px;
+    height: 11px;
+    text-indent: 150%;
+    white-space: nowrap;
+    background: url('//img.echosting.cafe24.com/suio/sflex_tooltip.png') -438px -100px no-repeat;
+}
+.mTooltip .edge {
+    position: absolute;
+    left: 14px;
+    top: -6px;
+    width: 9px;
+    height: 6px;
+    font-size: 0;
+    line-height: 0;
+    background: url('//img.echosting.cafe24.com/suio/sflex_tooltip.png') -391px -200px no-repeat;
+}
+.mTooltip .mList {
+    margin: 0 0 0 6px;
+}
+.cTip .mTooltip ul.mList li::before {
+    top: 9px;
+}
+.cTip .mTooltip ul.mList li, .cTip .mTooltip ol.mList li {
+    font-size: 12px;
+    line-height: 21px;
+    color: #888;
+}
+ul.mList li {
+    position: relative;
+    margin: 0;
+    padding: 0 0 0 9px;
+        padding-left: 9px;
+    color: #898989;
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: left;
+}
+ul.mList li::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 1px;
+    top: 6px;
+    left: 0;
+    background-color: #898989;
+}
+.btnIcon.icoCal {
+    width: 13px;
+    height: 13px;
+    background-position: -50px -500px;
+
+}
+.mTooltip .titleEm, .mTooltip .titleTip {
+    display: block;
+    margin: 10px 20px 7px 0;
+        margin-top: 10px;
+    padding: 0 0 0 15px;
+    border-bottom: 0;
+    color: #1c1c1c;
+    font-size: 12px;
+    background: url('//img.echosting.cafe24.com/suio/sflex_tooltip.png') -240px -499px no-repeat;
+}
+.btnNormal em.icoLink {
+    width: 0;
+    height: 0;
+    margin: -2px -4px 0 4px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: #6b6b6b transparent transparent transparent;
+    vertical-align: middle;
+    transform: rotate(-90deg);
+    -webkit-transform: rotate(-90deg);
+}
+
+.mTooltip.gMedium .tooltip {
+    width: 348px;
+}
+.mTooltip .content {
+    padding: 10px;
+    line-height: 1.2;
+}
+
+.txtInfo {
+    margin: 0 0 0 10px;
+    color: #898989;
+    font-size: 11px;
+    font-style: normal;
+}
+
+.mState .gLeft {
+    float: left;
+}
+.mState .total {
+    float: left;
+    margin: 2px 8px 0 0;
+    font-size: 12px;
+    font-family: "±¼¸²", Gulim, snas-serif;
+    color: #313131;
+}
+
+.mState .total strong {
+    color: #ff6d01;
+}
+
+.mState .gRight {
+    float: right;
+}
+
+.mCtrl {
+    padding: 7px 15px;
+    border: 1px solid #bcbfc4;
+    line-height: 21px;
+    text-align: center;
+    background: #dfe3e6;
+}
+
+.mCtrl.typeHeader {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -1px;
+}
+
+.btnNormal, .btnNormal span, .btnCtrl, .btnCtrl span, .btnDate, .btnDate span, .btnGeneral, .btnGeneral span, .btnStrong, .btnStrong span, .btnSubmit, .btnSubmit span, .btnEm, .btnEm span, .btnSearch, .btnSearch span, .btnToggle {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+.btnNormal span {
+    padding: 0 6px;
+    color: #1c1c1c;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 20px;
+    line-height: 22px\0;
+    border: 1px solid #cacaca;
+    background-color: #f8f8f8;
+}
+.mCtrl:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.mCtrl .gLeft {
+    float: left;
+    text-align: left;
+}
+
+.mCtrl .gRight {
+    float: right;
+    text-align: right;
+}
+.mState {
+    margin: 7px 0;
+    line-height: 20px;
+}
+.mState .total {
+    float: left;
+    margin: 2px 8px 0 0;
+    font-size: 12px;
+    font-family: "±¼¸²", Gulim, snas-serif;
+    color: #313131;
+}
+.mState:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.mButton.gCenter {
+    position: relative;
+    text-align: center;
+}
+
+.section > .mButton .btnSearch, .section > .mButton .btnSearch span, .section > form > .mButton .btnSearch, .section > form > .mButton .btnSearch span, .optionArea > .mButton .btnSearch, .optionArea > .mButton .btnSearch span {
+    height: 30px;
+}
+.btnSearch span {
+    padding: 0 8px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 20px;
+    line-height: 22px\0;
+    border: 1px solid transparent;
+    background-color: #404f6a;
+}
+
+
+
+
+
+
+
+
+
+#member_search{
+	min-width:1024px;
+	width:100%;
+	text-align:center;
+	border-collapse:collapse;
+	cursor:default;
+	font-size:100%;
+	color:#444;
+}
+#member_search th,
+#member_search td{
+	border:1px solid #ccc;
+	box-sizing:border-box;	
+}
+#member_search tbody tr:hover{
+	background-color:#eee;
+}
+
+#member_search .menu{
+	cursor:pointer;
+}
+#member_search thead{
+	background-color:#f5f4f4;	
+}
+#member_search thead tr{
+	height:40px;	
+}
+#member_search tbody tr td{
+	max-width:50px;
+	padding:9px 9px 7px;
+	white-space:nowrap;
+	overflow:hidden;
+}
+
+#member_search thead .descend,
+#member_search thead .ascend{
+	color:#1b87d4;
+}
+
+#member_search thead .descend .sort{
+	background-position:0px -35px;
+}
+
+#member_search thead .ascend .sort{
+	background-position:-17px -35px;
+}
+#member_search .sort{
+	background:url('http://deepsurvey.co.kr/kcookart/admin/image/sfix_btn.png') no-repeat 0px -21px;
+	width:7px;
+	height:4px;
+	margin-left:5px;
+	vertical-align:2px;
+	display:inline-block;
+	overflow:hidden;
+}
+
+#member_search tfoot tr{
+	height:50px;
+	background-color:#f5f4f4;
+}
+#member_search tfoot tr td nav{
+	height:30px;	
+	padding:10px;
+	display:inline-block;
+}
+
+#member_search tfoot tr td nav ul li{
+	float:left;	
+}
+#member_search tfoot tr td nav ul li a{
+	display:block;
+	border:1px solid #ccc;
+	background-image:linear-gradient(to bottom,#fff 0,#f5f5f5 100%);
+	background-color:#ddd;
+	text-decoration:none;
+}
+#member_search tfoot tr td nav ul li a:hover{
+	background-image:none;
+}
+#member_search tfoot tr td nav ul li a.active{
+	background-image:linear-gradient(to bottom,#b8d3fc 0,#96daff 100%)
+		
+}
+
+#member_search tfoot tr td nav ul li a i.double_left{
+	background-position: 0px -393px;	
+}
+#member_search tfoot tr td nav ul li a i.single_left{
+	background-position: 0px -367px;	
+}
+#member_search tfoot tr td nav ul li a i.single_right{
+	background-position: 0px -314px;	
+}
+#member_search tfoot tr td nav ul li a i.double_right{
+	background-position: 0px -340px;	
+}
+#member_search tfoot tr td nav ul li a i{
+	width:20px;
+	height:20px;
+	display:block;
+	background:url('http://deepsurvey.co.kr/kcookart/admin/image/icon.png');
+}
+#member_search tfoot tr td nav ul li a span{
+	width:20px;
+	height:20px;
+	display:block;
+	line-height:20px;
+	font-family:verdana;
+	font-size:13px;
+}

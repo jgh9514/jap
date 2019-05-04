@@ -1,0 +1,82 @@
+
+/* ========== CONTENTS ========== */
+/* SNB 영역 토글 */
+#sidebar { display:table-cell; position:relative; z-index:99; width:210px; padding:102px 0 50px; box-sizing:border-box; vertical-align:top; }
+#sidebar .snbArea { width:198px; }
+#sidebar .snbToggle { position:absolute; top:0; bottom:0; right:-1px; width:13px; }
+#sidebar .snbToggle button { position:absolute; top:211px; border:1px solid #bfc7d2; border-left:0; width:12px; height:34px; outline:0; font-size:0; line-height:0; background:#f3f3f3 url("//img.echosting.cafe24.com/ec/layout/sfix_layout.png") no-repeat 0 -50px; }
+#sidebar .snbToggle button:hover { width:53px; }
+#sidebar .snbToggle button:hover:before { display:inline-block; height:34px; content:"CLOSE"; font-size:11px; letter-spacing:-1px; line-height:34px; color:#42567b; font-weight:bold; }
+    .snbHidden #sidebar { width:21px; }
+    .snbHidden #sidebar .snbToggle button { margin-left:-1px; background-position:-50px -50px; }
+    .snbHidden #sidebar .snbToggle button:hover:before { content:"OPEN"; }
+    .snbHidden .snbArea { display:none; }
+#sidebar .snbHidden .snbToggle button { background-position:-17px -114px; }
+#sidebar.dashboard { width:200px; height:100%; background:0; }
+
+#container { position:relative; display:table; table-layout:fixed; width:100%; height:100%; background:url("//img.echosting.cafe24.com/ec/layout/bg_snb.png") repeat-y 198px 0; }
+    #content { display:table-cell; width:100%; height:100%; min-height:750px; min-width:1028px; padding:102px 10px 50px 17px; box-sizing:border-box; vertical-align:top; } /* mLayer 등 위치에 영향을 줄 수 있으므로 relative를 넣는것을 절대 금지함 */
+        #wrap.gFrame #sidebar { padding-bottom:0; }
+        #wrap.gFrame #content { position:relative; padding:100px 0 0 11px; }
+        #wrap.gFrame #content .gFrame { overflow:hidden; }
+    #content .gFrame > iframe { width:100%; height:100%; min-height:750px; background:#fff; }
+#container.snbHidden { background:url("//img.echosting.cafe24.com/ec/layout/bg_snb_hidden.png") repeat-y 0 100px; }
+#wrap .snbHidden #content:first-child { padding-left:0; }
+.wrapHidden #container { background:none; }
+
+ /* snb */
+    #snb.sub { background:#fff; }
+    /* tab */
+      #snb .tabArea { border-top:1px solid #dbdbdb; margin:0 0 6px; }
+      #snb .tabArea .tab { overflow:hidden; }
+      #snb .tabArea .tab li { float:left; width:50%;; background:#d4dbe4; }
+      #snb .tabArea .tab li a { display:block; height:33px; color:#697c92; line-height:33px; font-size:12px; text-decoration:none; text-align:center; }
+      #snb .tabArea .tab li.selected { background-color:#fff }
+      #snb .tabArea .tab li.selected a { font-weight:bold; color:#5fa5e7; }
+      #snb .tabArea .tab li:first-child a { border-left:0; }
+    /* link */
+      #snb .link { position:relative; margin:8px 0 6px; text-align:center; }
+      #snb .link a,
+      #snb .link a span { position:relative; background:url("//img.echosting.cafe24.com/ec/layout/sflex_btn.png") no-repeat 0 -50px; }
+      #snb .link a { display:inline-block; width:185px; margin:0 0 0 -2px; text-align:center; }
+      #snb .link a span { display:block; right:-2px; height:27px; font-size:12px; line-height:27px; color:#575e70; background-position:100% -50px; }
+      #snb .link a:hover { text-decoration:none; }
+      #snb .link .ico { display:inline-block; vertical-align:middle; background:url("//img.echosting.cafe24.com/ec/layout/sfix_icon.png") no-repeat; }
+      #snb .link .ico.doc { width:14px; height:11px; margin:-2px 7px 0 0; background-position:-100px 0; }
+      #snb .link .ico.design { width:14px; height:12px; margin:-2px 7px 0 0; background-position:-150px 0; }
+    /* menu */
+      #snb.sub .menu li { position:relative; line-height:14px; }
+      #snb.sub .menu li a { color:#808695; outline:0; word-wrap:break-word; word-break:break-all; }
+      #snb.sub .menu li a:hover { color:#52a0ea; text-decoration:none; }
+      #snb.sub .menu li a .transfer { text-decoration:line-through; }
+      #snb.sub .menu li.expandable > a { background:url("//img.echosting.cafe24.com/ec/layout/sflex_layout.gif") no-repeat 100% -139px; }
+      #snb.sub .menu li.disabled > a { color:#c2c2c2; }
+      #snb.sub .menu li > .tooltip { display:none; position:absolute; width:150px; height:43px; padding:10px 6px 0 11px; font-size:11px; color:#9a9fa5; background-image:url("//img.echosting.cafe24.com/ec/layout/bg_help_tooltip.png"); background-repeat:no-repeat; }
+      #snb.sub .menu li > .tooltip strong { font-weight:normal; color:#ff6d01; }
+      #snb.sub .menu li:hover > .tooltip { display:block; }
+      /* line */
+        #snb.sub .menu .line { text-decoration:none; }
+      /* 1depth */
+        #snb.sub .menu > li.collapsable { margin-top:-1px; border-top:1px solid #c5c8ce; border-bottom:1px solid #c5c8ce; background:#f5f6f7; }
+        #snb.sub .menu > li > a { display:block; margin:0 16px; padding:8px 10px 7px 0; font-weight:bold; color:#414550; }
+        #snb.sub .menu > li.expandable.collapsable > a { margin:0; padding:8px 26px 7px 16px; color:#414550; background:#fff url("//img.echosting.cafe24.com/ec/layout/sflex_layout.gif") no-repeat 100% -438px; }
+        #snb.sub .menu > li.selected > a { margin:0 4px; padding:8px 0 7px 12px; color:#fff; background:#5fa5e7; -webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; border-radius:3px; }
+        #snb.sub .menu > li > .tooltip { top:-44px; left:16px; background-position:0 0; }
+      /* 2depth */
+        #snb.sub .menu > li > ul { display:none; }
+        #snb.sub .menu > li.collapsable > ul { display:block; border-top:1px solid #eeeff1; padding:4px 0; }
+        #snb.sub .menu > li > ul > li.collapsable { background:url("//img.echosting.cafe24.com/ec/layout/sflex_layout.gif") no-repeat 100% -490px; }
+        #snb.sub .menu > li > ul > li.collapsable > a { color:#52a0ea; }
+        #snb.sub .menu > li > ul > li.expandable > a { background-position:100% -141px; }
+        #snb.sub .menu > li > ul > li > a { position:relative; display:block; margin:0 14px 0 0; padding:7px 10px 6px 16px; letter-spacing:-1px; }
+        #snb.sub .menu > li > ul > li.selected > a { font-weight:bold; color:#fff; background:#5fa5e7; -webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; border-radius:3px; }
+        #snb.sub .menu > li > ul > li.selected > a:before { background:#fff; }
+        #snb.sub .menu > li > ul > li.expandable > ul { display:none; }
+        #snb.sub .menu > li > ul > li.hide > a { display:none; }
+        #snb.sub .menu > li > ul > li > .tooltip { top:-46px; left:0; background-position:0 -63px; }
+      /* 3depth */
+        #snb.sub .menu li li li a { display:block; padding:7px 6px 6px 23px; letter-spacing:-1px; }
+          #snb.sub .menu li li li a:before { position:absolute; top:12px; left:16px; display:block; content:""; width:2px; height:2px; background:#696f7e; }
+        #snb.sub .menu li li li.selected { background:#5fa5e7; -webkit-border-radius:3px; -moz-border-radius:3px; -ms-border-radius:3px; -o-border-radius:3px; border-radius:3px; }
+        #snb.sub .menu li li li.selected a { font-weight:bold; color:#fff; background-position:0 -394px; }
+        #snb.sub .menu li li li > .tooltip { top:-45px; left:0; background-position:0 -126px; }

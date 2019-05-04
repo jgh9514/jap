@@ -1,0 +1,489 @@
+html{
+	background:	url('http://jgh9514.com/jap/image/body_background.jpg') no-repeat;
+	background-size:cover;
+	font-family:"Noto Sans KR";
+}
+body{
+	height:100%;
+	min-width:320px;
+	min-height:480px;
+}
+#overflow_container{
+	width:700px;
+	margin:0 auto;
+	position:relative;
+	overflow:hidden;
+}
+#position_container{
+	position:absolute;	
+}
+.row_group{
+	padding:10px 0;
+}
+.join_title {
+    padding-bottom:8px;
+    font-size: 14px;
+    font-weight: 700;
+    color:#777;
+}
+.join_row{
+	margin: 3% 0;
+}
+/*
+----------------------------------------------------------------
+						login_container
+----------------------------------------------------------------
+*/
+
+#login_container{
+	width:500px;
+	height:450px;
+	display:inline-block;
+	color:#fff;
+	position:absolute;
+}
+#login_container .body_container{
+	width:500px;
+	height:300px;
+	background:rgba(0,0,0, 0.5);
+	border-radius:10px;
+}
+
+#login_container .body_container .login_title{
+	width:90%;
+	height:60px;
+	margin:0 auto;
+	padding-top:23px;
+	border-bottom:4px solid #06C;
+	border-radius:5px;
+}
+
+
+#login_container .body_container .login_title h3{
+	display:inline-block;
+	float:left;
+	margin:0;
+	height:60px;
+}
+
+#login_container .body_container .login_title span{
+	display:inline-block;
+	float:left;
+	width:290px;
+	height:60px;
+	font-size:12px;
+	font-weight:bold;
+	line-height:70px;
+}
+
+#login_container .body_container .form_container{
+	clear:both;
+	width:65%;
+	margin:20px auto 0;
+	
+}
+
+#login_container .body_container .form_container #login_form span{
+	display:inline-block;
+	float:left;
+	width:73%;
+	margin:5px 0;
+}
+
+#login_container .body_container .form_container #login_form span label{
+	display:inline-block;
+	width:30%;	
+	font-weight:bold;
+}
+
+#login_container .body_container .form_container #login_form span input{
+	width:67%;
+}
+
+#login_container .body_container .form_container #login_form #login_submit{
+	width:25%;
+	height:54px;	
+	margin:5px 0 5px 2%;
+	background:#ccc;
+	background:linear-gradient(to top , #88d7ee, #3a9ece);
+	border:0;
+	color:#fff;
+	font-weight:bold;
+	padding:0;
+	cursor:pointer;
+}
+
+#login_container .body_container #find_info{
+ 	margin-top:20px;	
+}
+
+#login_container .body_container #find_info p{
+	margin:10px 0;	
+}
+
+#login_container .body_container #find_info p span{
+	font-weight:bold;	
+}
+#login_container .body_container #find_info p span.float_right{
+	float:right;
+	cursor:pointer;
+}
+
+/*
+----------------------------------------------------------------
+					  membership_container
+----------------------------------------------------------------
+*/
+
+
+#membership_container{
+	width:500px;
+	display:inline-block;
+	color:#fff;
+	position:absolute;
+	left:600px;
+}
+
+#membership_container .body_container{
+	width:500px;
+	height:700px;
+	background:rgba(0,0,0, 0.5);
+	border-radius:10px;
+}
+
+#membership_container .body_container .membership_title{
+	position:relative;
+}
+
+#membership_container .body_container .membership_title .arrow{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	left: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	cursor:pointer;
+}
+
+#membership_container .body_container .membership_title .arrow img{
+	width:100%;
+}
+#membership_container .body_container .membership_title h3{
+	text-align:center;
+	padding:30px 0;
+}
+
+.join_row .input_box{
+	width:100%;
+	height:38px;
+	display:block;
+	color:#222;
+	position:relative;
+}
+
+#membership_container .body_container .form_container{
+	padding:0 10px;
+}
+#membership_container .body_container .form_container #membership_form{
+	position:relative;
+}
+
+#membership_container .body_container .form_container span input{
+	width:100%;
+	height:38px;
+	border:0;
+	padding:1% 2%;
+	box-sizing:border-box;
+}
+#membership_container .body_container .form_container span i{
+	width: 38px;
+	height: 38px;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background:url('http://jgh9514.com/jap/login/image/sprite_common.png') no-repeat;
+}
+
+#membership_container .body_container .form_container .join_user_id i{
+	background-position:0px 0px;
+}
+
+#membership_container .body_container .form_container .join_user_id i.clear{
+	background-position:0px -39px;
+}
+#membership_container .body_container .form_container .join_user_id i.error{
+	background-position:0px -77px;
+}
+
+
+#membership_container .body_container .form_container .join_user_pw i{
+	background-position:-41px 0px;
+}
+#membership_container .body_container .form_container .join_user_pw i.clear{
+	background-position:-41px -39px;
+}
+#membership_container .body_container .form_container .join_user_pw i.error{
+	background-position:-41px -77px;
+}
+
+
+#membership_container .body_container .form_container .join_user_pw_check i{
+	background-position:-82px 0px;
+}
+#membership_container .body_container .form_container .join_user_pw_check i.clear{
+	background-position:-82px -39px;
+}
+#membership_container .body_container .form_container .join_user_pw_check i.error{
+	background-position:-82px -77px;
+}
+
+#membership_container .body_container .form_container #membership_submit{
+	width:100%;	
+	background:linear-gradient(to top , #88d7ee, #3a9ece);
+	border:0;
+	height:50px;
+	color:#fff;
+	font-size:17px;
+	font-weight:bold;
+	cursor:pointer;
+	display:block;
+	margin:0 auto;
+}
+#membership_container .body_container .form_container #membership_form > ul > li > ul > .menu{
+	width:100%;
+	color:#ccc;
+	font-weight:bold;
+	border:1px solid #ccc;
+	box-sizing:border-box;
+	padding: 15px 50px 15px 10px;
+	text-decoration:none;
+	cursor:pointer;
+	background-color:#fff;
+	position:relative;
+}
+#membership_container .body_container .form_container #membership_form > ul > li > ul > .menu > i{
+	width: 50px;
+	height: 48px;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	background:url('http://jgh9514.com/jap/login/image/sprite_common.png') no-repeat;
+	background-position:-115px 0px;
+}
+#membership_container .body_container .form_container #membership_form > ul > li > ul > .menu > i.clear{
+	background-position:-115px -44px;
+}
+#membership_container .body_container .form_container #membership_form > ul > li > ul > .menu > i.error{
+	background-position:-115px -88px;
+}
+
+
+
+#membership_container .body_container .form_container #membership_form > ul > li > ul > .dropdown{
+	overflow:hidden;
+	height:0px;
+	background-color:#eee;
+	width:90%;
+	padding:0 5%;
+}
+#membership_container .body_container .form_container #membership_form > ul > li > ul > .dropdown input{
+	background-color:#fff;
+}
+#membership_container .body_container .form_container .join_email span > span{
+	width: 5%;
+	float: left;
+	text-align: center;
+	height: 38px;
+	line-height: 35px;
+}
+#membership_container .body_container .form_container .join_email span > input{
+	width:47.5%;
+	float:left;	
+}
+#membership_container .body_container .form_container .join_email span > #email2{
+	position:absolute;
+	right:19px;
+	width:0;
+	display:none;
+}
+#membership_container .body_container .form_container .join_email span > select{
+	position: absolute;
+	right: 0;
+	width: 47.5%;
+	height: 38px;
+	border: 0;
+	text-align: center;
+	z-index:10;
+}
+#membership_container .body_container .form_container .join_phone span > #mobile{
+	width:70%;
+	float:left;
+}
+#membership_container .body_container .form_container .join_phone span > a{
+	position:absolute;
+	right:0;
+	width: 28%;
+	float: left;
+	background-color: #08a600;
+	margin-left: 2%;
+	text-align: center;
+	height: 38px;
+	line-height: 35px;
+}
+#membership_container .body_container .form_container #membership_form > ul > li > ul > .dropdown .join_phone span > #authNo{
+	margin-top:2%;
+	background-color:#bbb;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+#membership_container .body_container .form_container #membership_form > ul > li > ul > .dropdown .join_phone span > #timer{
+	position: absolute;
+	bottom: 11px;
+	right: 10px;
+	color: #08a600;
+}
+#membership_container .body_container .form_container .join_phone > span{
+	height:85px;
+}
+#membership_container .body_container .form_container .join_phone span > a > span{
+	color:#fff;
+}
+#membership_container .body_container .form_container .join_birthday .input_box{
+	font-size:0;
+}
+#membership_container .body_container .form_container .join_birthday select{
+	width:32%;
+	height:38px;
+	text-align:center;
+	border:0;
+}
+#membership_container .body_container .form_container .join_birthday #birth_month_select{
+	margin:0 1.5%;
+}
+#membership_container .body_container .form_container .join_sex label{
+	width: 49%;
+    box-sizing: border-box;
+    text-align: center;
+    height: 38px;
+    line-height: 35px;
+    float: left;
+    background-color:#fff;
+    cursor:pointer;
+}
+#sex_left{
+	margin-right:1%;
+}
+
+#is_sex0, #is_sex1{
+	display:none;
+}
+/*
+----------------------------------------------------------------
+					   	  find_container
+----------------------------------------------------------------
+*/
+#find_container{
+	width:500px;
+	height:700px;
+	display:inline-block;
+	color:#fff;
+	position:absolute;
+	left:-600px;
+}
+
+#find_container .body_container{
+	width:500px;
+	height:700px;
+	background:rgba(0,0,0, 0.5);
+	border-radius:10px;
+}
+
+
+@media screen and (max-width: 768px) { 
+	#overflow_container,
+	#position_container,
+	#login_container{
+		width:100%;
+		height:100%;
+	}
+	#login_container{
+		margin:0;
+	
+	}
+	#login_container h3{
+		text-align:center;	
+		height:150px;
+		margin:40px 0;
+	}
+	#login_container h3 img{
+		height:100%;
+	}
+	#login_container .body_container{
+		background:none;	
+		width:100%;
+		height:230px;
+		position:relative;
+	}
+	#login_container .body_container .form_container{
+		width:100%;	
+		box-sizing:border-box;
+		padding:0 2%;
+		margin:0;
+	}
+	#login_container .body_container .form_container #login_form span{
+		width:100%;	
+	}
+	#login_container .body_container .form_container #login_form span label{
+		display:none;	
+	}
+	#login_container .body_container .form_container #login_form span input{
+		width:100%;	
+		height:35px;
+		padding:5px;
+		box-sizing:border-box;
+	}
+	#login_container .body_container .login_title{
+		display:none;	
+	}
+	#login_container .body_container .form_container #login_form #login_submit{
+		width:100%;
+		height:45px;
+		margin:10px 0 0 0;
+	}
+	#login_container .body_container #find_info{
+		font-size:12px;	
+	}
+	#login_container .body_container #find_info p{
+		height:22px;	
+	}
+	#login_container .body_container #find_info p span{
+		line-height:22px;	
+	}
+	/*회원가입*/
+	#membership_container{
+		width:100%;
+	}
+	#membership_container .body_container{
+		width:100%;	
+	}
+	#membership_container .body_container .membership_title h3{
+		display:none;	
+	}
+	#membership_container .body_container .form_container{
+		padding:0;	
+	}
+	#membership_container .body_container .form_container #membership_form > ul > li > ul > .menu{
+		padding:0 0 0 15px;
+		height:40px;
+		line-height:40px;	
+	}
+	#membership_container .body_container .form_container #membership_form > ul > li > ul > .menu > i{
+		height:100%;	
+	}
+	#membership_form .row_group .join_row .error_next_box{
+		font-size:2.8vw;
+	}
+}

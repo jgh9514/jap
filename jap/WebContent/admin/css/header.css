@@ -1,0 +1,54 @@
+
+/* ========== Header ========== */
+    #header { position:fixed; left:0; right:0; z-index:102; height:102px; background:#ecf0f7; }
+    #header .header { height:32px; max-width:1238px; min-width:1024px; }
+    #header .header:after { content:""; display:block; clear:both; }
+    #header h1 { position:absolute; left:19px; top:7px; overflow:hidden; width:137px; }
+    #header h2 { visibility: hidden; overflow: hidden; position: absolute; left: -9999px; width: 0; height: 0; font-size: 0; line-height: 0; }
+    #header .option { display:inline-block; }
+
+    #header .alert { display:none; width:100%; min-width:1238px; height:34px; padding:11px 22px 0; font-size:12px; color:#fff; box-sizing:border-box; background:#ff0000; }
+    #header .alert:before { content:''; display:inline-block; width:17px; height:14px; margin:-1px 8px 0 0; vertical-align:top; background:url('//img.echosting.cafe24.com/ec/layout/ico_warning.png') no-repeat 0 0; }
+    .lm #header .alert { display:block; }
+    .lm #header { height:136px; }
+    .lm #sidebar,
+    .lm #content { padding-top:136px; }
+    .lm .mPromotion.typeBnr { top:149px; }
+
+/* GNB */
+    #gnb { display:-ms-flexbox; display:-ms-flex; display:-webkit-flex; display:flex; min-width:1240px; height:70px; padding:0 0 0 7px; background:#2a3954; }
+    #gnb:after { content:""; display:block; clear:both; }
+    #gnb > ul { float:left; display:table; table-layout:fixed; display:-ms-flexbox; display:-webkit-flex; display:flex; width:1152px; }
+    #gnb > ul li { display:table-cell; min-width:8.333%; display:-ms-flexbox; display:-webkit-flex; display:flex; -ms-flex:1; -webkit-flex:1; flex:1; }
+    #gnb > ul li a { display:block; overflow:hidden; width:100%; color:#c8dbf8; text-overflow:ellipsis; white-space:nowrap; }
+    #gnb > ul li a:hover { text-decoration:none; background-color:#1a273c; }
+    #gnb > ul li a:before { content:""; display:block; width:24px; height:24px; margin:12px auto 5px; vertical-align:middle; background-image:url("//img.echosting.cafe24.com/ec/layout/sfix_icon_gnb.png"); background-repeat:no-repeat; }
+    #gnb > ul li.selected a { color:#fff; background-color:#579ee5; }
+        #gnb > ul #shop a:before { background-position:0 0; }
+        #gnb > ul #product a:before { background-position:-25px 0; }
+        #gnb > ul #order a:before { background-position:-50px 0; }
+        #gnb > ul #member a:before { background-position:-75px 0; }
+        #gnb > ul #board a:before { background-position:-100px 0; }
+        #gnb > ul #design a:before { background-position:-125px 0; }
+        #gnb > ul #mobile a:before { background-position:0 -25px; }
+        #gnb > ul #promotion a:before { background-position:-25px -25px; }
+        #gnb > ul #marketing a:before { background-position:-50px -25px; }
+        #gnb > ul #market a:before { background-position:-75px -25px; }
+        #gnb > ul #optional a:before { background-position:-100px -25px; }
+        #gnb > ul #financial { position:relative; }
+        #gnb > ul #financial a:before { background-position:-125px -25px; }
+        #gnb > ul #financial > a { z-index:1; position:absolute; width:100%; top:0; left:0; background-color:#2a3954; }
+        #gnb > ul #financial .active { z-index:3; }
+        #gnb > ul #financial .focus:before { background-position:-150px -25px; }
+        #gnb > ul #financial .focus:hover { background-position:-150px -75px; }
+        #gnb > ul #shop.selected a:before { background-position:0 -50px; }
+        #gnb > ul #product.selected a:before { background-position:-25px -50px; }
+        #gnb > ul #order.selected a:before { background-position:-50px -50px; }
+        #gnb > ul #member.selected a:before { background-position:-75px -50px; }
+        #gnb > ul #board.selected a:before { background-position:-100px -50px; }
+        #gnb > ul #design.selected a:before { background-position:-125px -50px; }
+        #gnb > ul #mobile.selected a:before { background-position:0 -75px; }
+        #gnb > ul #promotion.selected a:before { background-position:-25px -75px; }
+        #gnb > ul #marketing.selected a:before { background-position:-50px -75px; }
+        #gnb > ul #market.selected a:before { background-position:-75px -75px; }
+        #gnb > ul #optional.selected a:before { background-position:-100px -75px; }

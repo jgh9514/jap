@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+html, body {}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,fieldset,p,button,table,th,td{margin:0;padding:0;}
+body,div,dl,dt,dd,h1,h2,h3,h4,form,fieldset,p,th,td,input{font-family:'Noto Sans KR', sans-serif;}
+body{font-size:12px; color:#636363;}
+img{border:0; vertical-align:middle;}
+fieldset {border:0;}
+textarea { border:1px solid #cccccc; font-family:'Noto Sans KR', sans-serif; font-size:12px; }
+select, input {font-family:'Noto Sans KR', sans-serif; vertical-align:middle; }
+ul, ol { list-style-type : none; }
+dt, dd, h1 ,h2, h3, h4 { padding:0px; margin:0px; }
+select{color:#636363; font-size:12px;}
+a, a:link { color:#000; text-decoration:none; display:inline-block; }
+legend,caption, hr {display:none;}
+em, address { font-style:normal;}
+button {background:transparent; border:0; font-family:'Noto Sans KR', sans-serif; font-size:0.75em; cursor:pointer; padding:0; overflow:visible; vertical-align:top;}
+table { border-collapse:collapse;}
+i{display:inline-block;}
+.float_left{float:left;}
+.float_right{float:right;}

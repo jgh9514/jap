@@ -1,0 +1,606 @@
+
+	
+	
+	
+$(document).ready(function() {
+	
+	/*회원가입칸 드롭다운 메뉴 START*/
+	$("#membership_form")[0].reset(); //회원가입 입력폼 리셋
+	$(".active").parent().children(".dropdown").css("height","350px"); // active된 메뉴의 높이 조정 / 반응형으로 전환시 수정해야함
+	$(".menu").on('click',function(){
+		if($('.menu.active i').hasClass('clear') || $(this).children('i').hasClass('clear')){ //현재 active되어 있는 드롭다운의 form을 전부 입력했는지 혹은 클릭한 메뉴의 form이 전부 입력되어있는지 확인
+				
+			var height_size = "350px"; //높이 세팅 변수
+			var this_drop = $(this).parent().children(".dropdown"); //클릭한 메뉴 설정
+			
+			var $aa = $(".dropdown"); // 클래스(dropdown) 객체 생성
+			
+			if(!$aa.is(":animated")){ // 클래스(dropdown)의 에니메이션 진행 여부 확인
+				if(this_drop.queue().length == 0){ //클릭한 메뉴의 자손 클래스(dropdown)의 큐스텍 개수가 0일 경우
+					if($(this).hasClass("active")){ //클릭한 메뉴의 클래스(active) 여부 확인
+		
+						$(this_drop).animate({height:"0px"},500); //클릭한 메뉴의 자손 클래스(dropdown)의 높이를 0으로 설정
+						$(".menu").removeClass("active"); //클릭한 메뉴에 active 클래스 제거
+						
+					}else if($('.active').length == 0){ //active 메뉴가 0일 경우
+						
+						$(this_drop).animate({height:height_size},500); //클릭한 메뉴의 자손 클래스(dropdown)의 높이를 높이 세팅 변수의 값으로 세팅
+						$(this).addClass("active"); //클릭한 메뉴에 active 클래스 추가
+						
+					}else{ // 그 외에 경우
+						$(".active").parent().children(".dropdown").animate({
+							height:"0px"
+						},500,function(){
+							$(this_drop).animate({height:height_size},500);
+						}); // 우선 active클래스가 있는 메뉴의 자손 클래스(dropdown)의 높이를 0으로 설정한 후 클릭한 메뉴의 자손 클래스(dropdown)의 높이를 높이 세팅 변수의 값으로 세팅
+						$(".menu").delay(500).removeClass("active"); //클래스(menu)의 엘리먼트의 클래스(active)를 제거
+						$(this).delay(500).addClass("active"); //클릭한 메뉴에 active 클래스 추가
+					}
+				}
+			}
+		}else{ //그 외에 경우
+			alert("입력되지 않은 정보가 존재합니다.");
+		}		
+	});
+	/*회원가입칸 드롭다운 메뉴 END*/
+	
+	
+	$("input").focus(function(){
+		if($(this).val() == "" && $(this).parent().parent().find(".error_next_box").text()==""){
+			$(this).css("border","1px solid #08a600");	//input 처음 입력 시 input 테두리 녹색으로 변경
+		}
+	});
+	
+	
+	/*생년월일 날짜 option 설정 START*/
+	for(var i = 2005; i > 1910; i--){ 
+    	$("#birth_year_select").append( "<option value='"+i+"'>"+i+"</option>"); //년도
+    }
+    for(var i = 1; i < 13; i++){ 
+    	$("#birth_month_select").append( "<option value='"+i+"'>"+i+"</option>"); //월
+    }
+	/*생년월일 날짜 option 설정 END*/
+	
+	
+	/*성별 설정*/
+    $(".sex_button").click(function(){
+    	$(".sex_button").css({
+    		"background":"#fff",
+    		"color":"#000"
+    	});
+    	$(this).css({
+    		"background":"#08a600",
+    		"color":"#fff"
+    	});
+    });
+});
+
+
+/*각 메뉴별 form 데이터 유효성 검사 START*/
+var t1,t2,t3,t4,t5,t6 = false;
+function Form_Clear(Name, Bool){
+    $("#account_icon").removeClass("clear");
+    $("#individual_icon").removeClass("clear");
+	
+    if(Name=="id"){
+    	t1 = Bool;
+    }else if(Name == "pw"){
+    	t2 = Bool;
+    }else if(Name == "pw_check"){
+    	t3 = Bool;
+    } else if(Name=="name"){
+    	t4 = Bool;
+    }else if(Name == "email"){
+    	t5 = Bool;
+    }else if(Name == "phone"){
+    	t6 = Bool;
+    }
+    
+    if(t1 && t2 && t3){
+    	$("#account_icon").addClass("clear");
+    }
+	if(t4 && t5 && t6){
+    	$("#individual_icon").addClass("clear");    	
+    }
+}
+/*각 메뉴별 form 데이터 유효성 검사 END*/
+
+
+/*Input 입력 값 유효성 불일치일 경우 진동알림 START*/
+function False_Input_Value(input){
+	$(input).css("position","absolute");
+	$(input).animate({
+		"left":"-5px"
+	},100,function(){
+		$(input).animate({
+    		"left":"5px"
+    	},100,function(){
+    		$(input).animate({
+        		"left":"-5px"
+        	},100,function(){
+        		$(input).animate({
+            		"left":"5px"
+            	},100,function(){
+            		$(input).animate({
+                		"left":"0px"
+                	},100);
+            	});
+        	});
+    	});
+	});
+}
+/*Input 입력 값 유효성 불일치일 경우 진동알림 END*/
+
+
+
+function True_Availability(MSG, MSG_Text, Input, Icon){
+	
+	$(MSG).css("display","none");
+	$(MSG).html("");
+	$(Input).css("border","1px solid #0275f4");
+	$(Icon).removeClass("error");
+	$(Icon).addClass("clear");
+}
+
+function False_Availability(MSG, MSG_Text, Input, Icon){
+	False_Input_Value(Input);
+	$(MSG).css({
+		"display":"block",
+		"color":"#f00",
+	});
+	$(MSG).html(MSG_Text);
+	$(Input).css("border","1px solid #f00");
+	$(Icon).removeClass("clear");
+	$(Icon).addClass("error");
+}
+
+/*아이디 체크 함수 START*/
+function ID_Check(){
+	var UserID = $("#jap_user_id");
+	var UserID_Value = $(UserID).val();
+	var UserID_Msg = $("#ID_MSG");
+	var UserID_Icon = $("#user_id_icon");
+    var exp = new RegExp('(^[-_])|[^0-9a-z_-]');
+    Form_Clear("id",false);
+    
+    if(UserID_Value.length == 0){
+		False_Availability(UserID_Msg, "필수 정보입니다.", UserID, UserID_Icon);
+    }else if(UserID_Value.length < 5 || exp.test(UserID_Value)){
+		False_Availability(UserID_Msg, "5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.", UserID, UserID_Icon);
+    }else{
+    	ID_Check_Action();
+    	
+    }
+}
+/*아이디 체크 함수 END*/
+
+/*서버에서 ID 존재여부 확인 START*/
+function ID_Check_Action(){
+	var UserID = $("#jap_user_id");
+	var UserID_Value = $(UserID).val();
+	var UserID_Msg = $("#ID_MSG");
+	var UserID_Icon = $("#user_id_icon");
+	$.ajax({
+		type : "POST",
+		url : "id_check_action.jsp",
+		cache : false,
+		async: false,
+		datatype:"text",
+		data : {
+			"jap_user_id" : UserID_Value
+		},
+		success : function(data){
+		    
+			var $msg_data = $(data);
+			var Massage = $msg_data.filter("#one").text();
+			
+			if(Massage == ""){
+				True_Availability(UserID_Msg, Massage, UserID, UserID_Icon);
+	        	Form_Clear("id",true);
+			}else{
+				False_Availability(UserID_Msg, Massage, UserID, UserID_Icon);
+			}
+		},
+		error : function(){
+			alert("아이디 중복체크 중 오류가 발생하였습니다.");
+		}
+	});
+}
+/*서버에서 ID 존재여부 확인 END*/
+
+
+
+
+/*비밀번호 체크 함수 START*/
+function Password_Check(){
+	var UserPassword = $("#jap_user_pw");
+    var UserPassword_Value = $(UserPassword).val();
+	var UserPassword_Check = $("#jap_user_pw_check");
+    var UserPassword_Msg = $("#PW_MSG");
+    var UserPassword_Icon = $("#user_pw_icon");
+	
+    var chk1 = /^.*(?=.*[a-zA-Z])(?=.*[`~!@#$%^&*\(\)+=\-_|\{\}\[\]:;\'\"<>,.\/?]).{8,16}/g;
+    var chk2 = /^.*(?=.*[a-zA-Z])(?=.*[0-9]).{8,16}/g;
+    Form_Clear("pw",false);
+    
+
+    var checkString_1 = value1.match(chk1);
+    var checkString_2 = value1.match(chk2);
+    
+	if($(UserPassword_Check).val() != "") Confirm_password();
+	
+    if(UserPassword.length == 0){
+		False_Availability(UserPassword_Msg, "필수 정보입니다.", UserPassword, UserPassword_Icon);
+    }else if(value1.length < 8 || (checkString_1 == null && checkString_2 == null)){
+		False_Availability(UserPassword_Msg, "8~16자 영문 대 소문자, 숫자, 특수문자중 2개 이상 조합", UserPassword, UserPassword_Icon);
+    }else{
+		True_Availability(UserPassword_Msg, "", UserPassword, UserPassword_Icon);
+    	Form_Clear("pw",true);
+    }
+}
+
+function Confirm_password(){
+	var UserPassword = $("#jap_user_pw");
+    var UserPassword_Value = $(UserPassword).val();
+	var UserPassword_Check = $("#jap_user_pw_check");
+    var UserPassword_Check_Value = $(UserPassword_Check).val();
+    var UserPassword_Check_Msg = $("#PW_CHECK_MSG");
+    var UserPassword_Check_Icon = $("#user_pw_check_icon");
+    
+	Form_Clear("pw_check",false);	
+	
+    if(!t2){
+		False_Availability(UserPassword_Check_Msg, "비밀번호를 먼저 입력해주세요.", UserPassword_Check, UserPassword_Check_Icon);
+    }else if(UserPassword_Check_Value.length == 0){
+		False_Availability(UserPassword_Check_Msg, "필수정보 입니다.", UserPassword_Check, UserPassword_Check_Icon);
+    }else if(UserPassword_Value != UserPassword_Check_Value){
+		False_Availability(UserPassword_Check_Msg, "비밀번호가 일치하지 않습니다.", UserPassword_Check, UserPassword_Check_Icon);
+    }else{
+		True_Availability(UserPassword_Check_Msg, "", UserPassword_Check, UserPassword_Check_Icon);
+    	Form_Clear("pw_check",true);
+    	if(t1 && t2 && t3) $(".menu").eq(1).click();
+    }
+}
+/*비밀번호 체크 함수 END*/
+
+/*이름 체크 함수 START*/
+function NAME_Check(){
+	var UserName = $("#jap_user_name");
+    var UserName_Value = $(UserName).val();
+    var UserName_Msg = $("#NAME_MSG");
+    var exp = new RegExp('[^가-힣0-9a-zA-Z]');
+	Form_Clear("name",false);
+    
+    
+    if(UserName_Value.length == 0){
+		False_Availability(UserName_Msg, "필수정보 입니다.", UserName, "");
+    }else if(exp.test(UserName_Value)){
+		False_Availability(UserName_Msg, "한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)", UserName, "");
+    }else{
+		True_Availability(UserName_Msg, "", UserName, "");
+		Form_Clear("name",true);
+    	
+    }
+}
+/*이름 체크 함수 END*/
+
+
+/*이메일 체크 함수 START*/
+function EMAIL_Check(){	
+	var UserEmail_1 = $("#email1");
+    var UserEmail_Msg = $("#EMAIL_MSG");
+    var UserEmail_1_Value = $(UserEmail_1).val();
+	var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+	Form_Clear("email",false);
+    
+    var checkString_1 = UserEmail_1_Value.match(regExp);
+	
+    if(UserEmail_1_Value.length == 0){
+		False_Availability(UserEmail_Msg, "필수정보 입니다.", UserEmail_1, "");
+    }else if(checkString_1 == null){
+		False_Availability(UserEmail_Msg, "이메일 주소를 다시 확인해주세요.", UserEmail_1, "");
+    }else{
+		True_Availability(UserEmail_Msg, "", UserEmail_1, "");
+		if($("#email3").val() != "default"){
+			Form_Clear("email",true);
+    		$("#userEmail").attr("value",UserEmail_1.val() + "@" + $("#email2").val());
+		}
+    }
+}
+
+function EMAIL_Change(){
+    var UserEmail_1 = $("#email1");
+    var UserEmail_2 = $("#email2");
+    var UserEmail_3 = $("#email3");
+    var width = email3.css("width").split("px");
+	
+	Form_Clear("email",false);
+		
+	
+	
+    if(UserEmail_3.val() == "etc"){
+        $(UserEmail_2).attr("value","");
+    	UserEmail_2.css({
+    		"display":"block",
+            "z-index":"11",
+            "width":(Number(width[0])-19)+'px'
+        });
+    	$(UserEmail_2).focus();
+    }
+    else{
+        UserEmail_2.css({
+    		"display":"none",
+        	"z-index":"1",
+        });
+        $(UserEmail_2).attr("value",UserEmail_3.val());
+    	$("#userEmail").attr("value",UserEmail_1.val() + "@" + UserEmail_2.val());
+		Form_Clear("email",true);
+    }
+}
+/*이메일 체크 함수 END*/
+
+
+
+/*MAC (메세지 인증 코드) */
+
+var MAC="";
+function test2(){
+
+	$("#authNo").removeAttr("disabled");
+	$("#authNo").css("background-color","#fff");
+	$("#smsType").attr("value","S");
+	$("#rphone").attr("value","010-7255-0992");
+	$("#sphone1").attr("value","010");
+	$("#sphone2").attr("value","7255");
+	$("#sphone3").attr("value","0992");
+	$("#testflag").attr("value","");
+	MAC = "";
+	for(var i = 0; i<6; i++){
+    	var random_int = Math.random();
+    	random_int *= 10;
+    	random_int = Math.floor(random_int);
+    	
+    	MAC = MAC+random_int;
+	}
+	$("#code").text("[jap]본인확인\n인증번호["+ MAC +"]를\n입력해주세요.");
+	
+	test1();
+}
+function test1(){
+	var formData = $("#form1").serialize();
+	 
+	$.ajax({
+		type : "POST",
+		url : "sms2.jsp",
+		cache : false,
+		data : formData,
+		success : onSuccess,
+		error : onError
+	});
+}
+function onSuccess(data){
+	var $msg_data = $(data);
+	var massage = $msg_data.filter("#one").text();
+	var Msg = $("#sendPhoneList");
+	$(Msg).html(massage);
+}
+function onError(data, status){alert("error");}
+
+var authNo_count = 3;
+function check_MAC(){
+	var input1 = document.getElementById("mobile");
+	var input2 = document.getElementById("authNo");
+    var value1 = input1.value;
+	var MAC_code = $("#authNo").val();
+    var Msg2 = document.getElementById("PHONE_MSG");
+    
+	if(MAC_code.length == 6){
+		if(MAC == MAC_code){
+    		$("#authNo").css("border","1px solid #0275f4");
+			clearInterval(tid);	
+			Msg2.innerHTML = "";
+			$("#timer").html("");
+			Form_Clear("phone",true);
+			if($("#individual_icon").hasClass("clear")){
+    			$(".menu").eq(2).click();
+			}
+		}else{
+	    	False_Input_Value(input2);
+	    	$(input2).css({
+	    		"border":"1px solid #f00",
+	    	});
+	    	$(Msg2).css({
+	    		"display":"block",
+	    		"color":"#f00",
+	    	});
+	    	Msg2.innerHTML = "인증코드가 일치하지 않습니다.";
+			$("#authNo").val("");
+			authNo_count--;
+			Form_Clear("phone",false);
+			if(authNo_count == 0){
+				Msg2.innerHTML = "입력횟수가 초과되었습니다. 다시 인증하시기 바랍니다.";
+				$("#authNo").prop("disabled",true);
+				$("#authNo").css({
+					"background":"#bbb",
+					"border":"0"
+				});
+				$("#timer").html("03:00");
+				clearInterval(tid);
+			}
+		}
+	}
+}
+
+
+function autoHypen() { 
+	var phone = $("#mobile").val();
+	var phone_num = autoHypenPhone(phone);
+	$("#mobile").val(phone_num);
+}
+
+function autoHypenPhone(str){
+  str = str.replace(/[^0-9]/g, '');
+  var tmp = '';
+  if( str.length < 4){
+    return str;
+  }else if(str.length < 7){
+    tmp += str.substr(0, 3);
+    tmp += '-';
+    tmp += str.substr(3);
+    return tmp;
+  }else if(str.length < 11){
+    tmp += str.substr(0, 3);
+    tmp += '-';
+    tmp += str.substr(3, 3);
+    tmp += '-';
+    tmp += str.substr(6);
+    return tmp;
+  }else{
+    tmp += str.substr(0, 3);
+    tmp += '-';
+    tmp += str.substr(3, 4);
+    tmp += '-';
+    tmp += str.substr(7);
+    return tmp;
+  }
+  return str;
+}
+
+var SetTime = 180;
+/*MAC (메세지 인증 코드) */
+function PHONE_Check(){
+	var input1 = document.getElementById("mobile");
+    var value1 = input1.value;
+    var Msg = document.getElementById("PHONE_MSG");
+    var exp = /^01(?:0|1|[6-9])-(?:\d{3}|\d{4})-\d{4}$/;
+    var exp2 = /^01(?:0|1|[6-9])(?:\d{3}|\d{4})\d{4}$/;
+    
+    var checkString_1 = value1.match(exp);
+    var checkString_2 = value1.match(exp2);
+    
+    if(value1.length == 0){
+    	False_Input_Value(input1);
+    	$(Msg).css({
+    		"display":"block",
+    		"color":"#f00",
+    	});
+    	$(input1).css("border","1px solid #f00");
+    	Msg.innerHTML = "필수 정보입니다.";
+    }else if(checkString_1 == null && checkString_2 == null){
+    	False_Input_Value(input1);
+    	$(Msg).css({
+    		"display":"block",
+    		"color":"#f00",
+    	});
+    	$(input1).css("border","1px solid #f00");
+    	Msg.innerHTML = "형식에 맞지 않는 번호입니다.";
+    }else{
+    	$(input1).css("border","1px solid #0275f4");
+    	$(Msg).css({
+    		"display":"block",
+    		"color":"#08a600",
+    	});
+    	Msg.innerHTML = "인증번호를 발송했습니다.";
+		SetTime = 180;
+		tid=setInterval('msg_time()',1000);
+		
+    	test2();
+    }
+}
+
+function msg_time() {	// 1초씩 카운트
+	var m = pad(Math.floor(SetTime / 60),2) + ":" + pad((SetTime % 60),2);
+	SetTime--;					// 1초씩 감소
+	$("#timer").html(m);		// div 영역에 보여줌 
+	if (SetTime < 0) {			// 시간이 종료 되었으면..
+    	var P_Msg = document.getElementById("PHONE_MSG");
+		$("#PHONE_MSG").css("color","#f00");
+		P_Msg.innerHTML = "인증 유효시간이 초과되었습니다. 다시 인증하시기 바랍니다.";
+		$("#authNo").prop("disabled",true);
+		$("#authNo").css({
+			"background":"#bbb",
+			"border":"0"
+		});
+		$("#authNo").val("");
+		$("#timer").html("03:00");
+		clearInterval(tid);		// 타이머 해제
+	}
+	
+}
+
+function pad(n, width) {
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join('0') + n;
+}
+function birth_select(type){
+    var birth_type = "#birth_" + type + "_select";
+	var test = $(birth_type).val();
+    $("#birth_"+type).attr("value",test);
+    $("#birth").attr("value",$("#birth_year").val()+"-"+$("#birth_month").val()+"-"+$("#birth_day").val());
+}
+
+function Sum_Day(){
+     $("#birth_day_select").html("<option value="+"선택"+" selected="+"selected"+">일</option>");
+	var Year = document.getElementById("birth_year");
+	var Month = document.getElementById("birth_month");
+    var retValue;
+    
+
+    
+    if(Year.value != "선택" && Year.value != "" && Month.value != "선택" && Month.value !=""  ){
+        retValue = fn_GetDatCount(parseInt(Year.value), parseInt(Month.value));
+        
+        
+        for(var i = 1; i <= retValue; i++){ 
+            $("#birth_day_select").append( "<option value='"+i+"'>"+i+"</option>");
+        }
+    }
+    
+}
+
+function fn_GetDatCount(year,month){
+    var retValue="";
+    
+    if(month == "2"){
+        if(year%4==0 && year%100!=0 || year%400 == 0)
+            retValue ="29";
+        else
+            retValue ="28";
+    }else if(month=="1" || month=="3" || month=="5" || month=="7" || month=="8" || month=="10" || month=="12"){
+    	retValue="31";    
+    }else{
+    	retValue="30";
+    }
+    return retValue;
+}
+
+
+function join_check(){
+	if(!t1){
+		Page_Move("아이디를 입력해주시기 바랍니다.", 0, "#jap_user_id");
+	}else if(!t2){
+		Page_Move("비밀번호를 입력해주시기 바랍니다.", 0, "#jap_user_pw");
+	}else if(!t3){
+		Page_Move("비밀번호 재확인을 입력해주시기 바랍니다.", 0, "#jap_user_pw_check");
+	}else if(!t4){
+		Page_Move("이름을 입력해주시기 바랍니다.", 1, "#jap_user_name");
+	}else if(!t5){
+		Page_Move("이메일을 입력해주시기 바랍니다.", 1, "#email1");		
+	}else if(!t6 || !t7){
+		Page_Move("연락처 인증을 해주시기 바랍니다.", 1, "#mobile");		
+	}else if(userDate == ""){
+		Page_Move("생년월일을 선택해주시기 바랍니다.", 2, "#mobile");
+	}else if($("input[name=is_sex]").val() == ""){
+		Page_Move("성별을 선택해주시기 바랍니다.", 3, "#mobile");
+		
+	}else{
+		
+	}
+	return 0;
+}
+
+function Page_Move(Art, Page_N, Selecter){
+	alert(Art);
+	$(".menu").eq(Page_N).click();
+	$(Selecter).focus();
+}
